@@ -139,61 +139,61 @@
     <div class="w-full flex flex-col gap-6 mt-2">
       
       <!-- Top 3 High Contrast Podium Cards -->
-      <div class="grid grid-cols-3 gap-4 md:gap-8 items-end min-h-[350px] md:min-h-[460px]">
+      <div class="grid grid-cols-3 gap-4 md:gap-8 items-end min-h-[250px] md:min-h-[340px]">
         
         <!-- Rank 2: Silver (Rendered left) -->
         {#if results.length > 1}
-          <div class="glass-card p-6 rounded-xl border-b-4 border-silver flex flex-col items-center justify-center h-80 md:h-[350px] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2">
+          <div class="glass-card pt-6 px-6 pb-5 rounded-xl border-b-4 border-silver flex flex-col items-center h-64 md:h-[260px] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2">
             <div class="absolute top-4 left-4 font-display-lg text-[48px] rank-silver opacity-30 italic font-black">02</div>
-            <span class="material-symbols-outlined text-[48px] rank-silver mb-3">military_tech</span>
-            <div class="text-center w-full">
+            <div class="my-auto flex flex-col items-center text-center w-full">
+              <span class="material-symbols-outlined text-[48px] rank-silver mb-3">military_tech</span>
               <h3 class="font-headline-lg text-base md:text-xl text-on-surface truncate font-bold">{results[1].title}</h3>
               <p class="font-label-sm text-[11px] md:text-[13px] text-on-surface-variant font-bold mt-1">{results[1].vote_count} VOTES</p>
             </div>
-            <div class="w-full h-2 bg-white/5 rounded-full mt-4 overflow-hidden">
+            <div class="w-full h-2 bg-white/5 rounded-full mt-auto overflow-hidden">
               <div class="h-full bg-secondary/60 transition-all duration-500" style="width: {getPercentage(results[1].vote_count)}%"></div>
             </div>
           </div>
         {:else}
-          <div class="glass-card p-6 rounded-xl h-80 md:h-[350px] border border-dashed border-white/10 flex items-center justify-center opacity-40">
+          <div class="glass-card pt-6 px-6 pb-5 rounded-xl h-64 md:h-[260px] border border-dashed border-white/10 flex items-center justify-center opacity-40">
             <p class="text-label-sm text-on-surface-variant font-bold">2ND PLACE</p>
           </div>
         {/if}
 
         <!-- Rank 1: Gold (Rendered center and taller) -->
         {#if results.length > 0}
-          <div class="glass-card p-6 rounded-xl border-b-4 border-secondary ring-2 ring-secondary/30 flex flex-col items-center justify-center h-[380px] md:h-[430px] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2 shadow-[0_0_50px_rgba(245,130,32,0.25)]">
+          <div class="glass-card pt-6 px-6 pb-5 rounded-xl border-b-4 border-secondary ring-2 ring-secondary/30 flex flex-col items-center h-80 md:h-[320px] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2 shadow-[0_0_50px_rgba(245,130,32,0.25)]">
             <div class="absolute top-4 left-4 font-display-lg text-[56px] rank-gold opacity-50 italic font-black">01</div>
-            <span class="material-symbols-outlined text-[56px] rank-gold mb-3 scale-125">workspace_premium</span>
-            <div class="text-center w-full">
+            <div class="my-auto flex flex-col items-center text-center w-full">
+              <span class="material-symbols-outlined text-[56px] rank-gold mb-3 scale-125">workspace_premium</span>
               <h3 class="font-headline-lg text-[18px] md:text-[26px] text-secondary font-extrabold truncate leading-tight">{results[0].title}</h3>
               <p class="font-label-sm text-xs md:text-base text-on-surface-variant font-black tracking-widest mt-1.5">{results[0].vote_count} VOTES</p>
             </div>
-            <div class="w-full h-3 bg-white/10 rounded-full mt-4 overflow-hidden">
+            <div class="w-full h-3 bg-white/10 rounded-full mt-auto overflow-hidden">
               <div class="h-full shimmer transition-all duration-500" style="width: 100%"></div>
             </div>
           </div>
         {:else}
-          <div class="glass-card p-6 rounded-xl h-[380px] md:h-[430px] border border-dashed border-white/10 flex items-center justify-center opacity-40">
+          <div class="glass-card pt-6 px-6 pb-5 rounded-xl h-80 md:h-[320px] border border-dashed border-white/10 flex items-center justify-center opacity-40">
             <p class="text-label-sm text-on-surface-variant font-bold">1ST PLACE</p>
           </div>
         {/if}
 
         <!-- Rank 3: Bronze (Rendered right) -->
         {#if results.length > 2}
-          <div class="glass-card p-6 rounded-xl border-b-4 border-bronze flex flex-col items-center justify-center h-72 md:h-[310px] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2">
+          <div class="glass-card pt-6 px-6 pb-5 rounded-xl border-b-4 border-bronze flex flex-col items-center h-56 md:h-[220px] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2">
             <div class="absolute top-4 left-4 font-display-lg text-[40px] rank-bronze opacity-30 italic font-black">03</div>
-            <span class="material-symbols-outlined text-[40px] rank-bronze mb-3">emoji_events</span>
-            <div class="text-center w-full">
+            <div class="my-auto flex flex-col items-center text-center w-full">
+              <span class="material-symbols-outlined text-[40px] rank-bronze mb-3">emoji_events</span>
               <h3 class="font-headline-lg text-sm md:text-lg text-on-surface truncate font-bold">{results[2].title}</h3>
               <p class="font-label-sm text-[11px] md:text-[13px] text-on-surface-variant font-bold mt-1">{results[2].vote_count} VOTES</p>
             </div>
-            <div class="w-full h-2 bg-white/5 rounded-full mt-4 overflow-hidden">
+            <div class="w-full h-2 bg-white/5 rounded-full mt-auto overflow-hidden">
               <div class="h-full bg-secondary/40 transition-all duration-500" style="width: {getPercentage(results[2].vote_count)}%"></div>
             </div>
           </div>
         {:else}
-          <div class="glass-card p-6 rounded-xl h-72 md:h-[310px] border border-dashed border-white/10 flex items-center justify-center opacity-40">
+          <div class="glass-card pt-6 px-6 pb-5 rounded-xl h-56 md:h-[220px] border border-dashed border-white/10 flex items-center justify-center opacity-40">
             <p class="text-label-sm text-on-surface-variant font-bold">3RD PLACE</p>
           </div>
         {/if}
