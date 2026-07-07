@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ICT University Tech Expo - Live Leaderboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#b1c7f6",
+            "outline-variant": "#44474e",
+            "surface-container-lowest": "#0c0f0f",
+            "error-container": "#93000a",
+            "secondary-container": "#e1730a",
+            "surface-container": "#1e2020",
+            "error": "#ffb4ab",
+            "inverse-surface": "#e2e2e2",
+            "on-background": "#e2e2e2",
+            "primary": "#b5c7ef",
+            "primary-container": "#0b1f3f",
+            "background": "#0b1f3f", /* Overridden per Brand Guidance Floor */
+            "on-tertiary": "#183057",
+            "surface-container-high": "#282a2b",
+            "secondary-fixed-dim": "#ffb786",
+            "surface": "#121414",
+            "on-primary-fixed-variant": "#354769",
+            "on-secondary-container": "#461f00",
+            "on-surface-variant": "#c5c6cf",
+            "on-secondary-fixed": "#311300",
+            "on-error-container": "#ffdad6",
+            "primary-fixed": "#d7e2ff",
+            "on-secondary": "#502400",
+            "surface-variant": "#333535",
+            "outline": "#8f9099",
+            "surface-bright": "#37393a",
+            "tertiary": "#b1c7f6",
+            "on-tertiary-fixed": "#001a40",
+            "primary-fixed-dim": "#b5c7ef",
+            "surface-dim": "#121414",
+            "surface-container-low": "#1a1c1c",
+            "tertiary-container": "#031f46",
+            "surface-container-highest": "#333535",
+            "surface-tint": "#b5c7ef",
+            "on-tertiary-container": "#7288b4",
+            "secondary-fixed": "#ffdcc6",
+            "on-primary-container": "#7687ad",
+            "on-secondary-fixed-variant": "#723600",
+            "on-surface": "#e2e2e2",
+            "on-primary-fixed": "#061b3b",
+            "tertiary-fixed": "#d7e2ff",
+            "inverse-primary": "#4d5e82",
+            "secondary": "#f58220", /* Matched to ICT University Logo Brand */
+            "on-tertiary-fixed-variant": "#30476f",
+            "inverse-on-surface": "#2f3131",
+            "on-primary": "#1e3051",
+            "on-error": "#690005"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "xl": "64px",
+            "gutter": "16px",
+            "xs": "4px",
+            "md": "24px",
+            "sm": "12px",
+            "lg": "40px",
+            "base": "8px",
+            "container-max": "1280px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Hanken Grotesk"],
+            "label-sm": ["JetBrains Mono"],
+            "headline-lg-mobile": ["Hanken Grotesk"],
+            "title-md": ["Hanken Grotesk"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg": ["Hanken Grotesk"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+            "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+            "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #0b1f3f;
+      background-image: radial-gradient(circle at center, #162E55 0%, #0b1f3f 100%);
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .glass-card {
+      background: rgba(22, 46, 85, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .shimmer {
+      background: linear-gradient(
+        90deg,
+        rgba(245, 130, 32, 0.8) 0%,
+        rgba(255, 183, 134, 1) 50%,
+        rgba(245, 130, 32, 0.8) 100%
+      );
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite linear;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .pulse-dot {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+    }
+
+    .leaderboard-container {
+      perspective: 1000px;
+    }
+
+    .rank-gold { color: #FFD700; text-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+    .rank-silver { color: #C0C0C0; text-shadow: 0 0 20px rgba(192, 192, 192, 0.5); }
+    .rank-bronze { color: #CD7F32; text-shadow: 0 0 20px rgba(205, 127, 50, 0.5); }
+  </style>
+</head>
+<body class="text-on-surface h-screen w-screen selection:bg-secondary selection:text-on-secondary">
+<!-- Background Ambience (Web GL Placeholder Intent) -->
+<div class="fixed inset-0 opacity-20 pointer-events-none z-0">
+
+</div>
+<!-- Header Shell (Desktop TopAppBar adapted for TV/Projector) -->
+<header class="relative z-50 flex justify-between items-center w-full px-xl py-lg bg-surface/10 backdrop-blur-md border-b border-white/5">
+<div class="flex items-center gap-base">
+<div class="h-16 w-16 bg-white rounded-lg flex items-center justify-center p-2 shadow-xl">
+<!-- Replicating the Shield Anchor from the reference image context -->
+<img class="h-full object-contain" data-alt="The official ICT University logo featuring a classic gold and blue crest with a shield shape and institutional typography on the right." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQsdlvL1D5aDcRKI5D2ZaLkyLHFBnMJq_-1xPebaARgV3nuGeTCFfYV9xJNxlomTXzqOBVcPqRzPE4cDL7RAALcaphPvXBXAdLm1v_mgBhFhNIMBZME6p3v5Yn-5fbyZwn14NTrtukJhQFzduDf4Bv99PQOX8CYMPJ94BB7H7AzXdw0FDhFLeyfG7QeUInkOHczxVnleTqSn0tKBhGPIW05ChLKcb1G0eiITqtDGspVP5vD8oru6bd9g"/>
+</div>
+<div class="ml-base">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">ICT University Tech Expo</h1>
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 bg-secondary rounded-full pulse-dot"></span>
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">LIVE LEADERBOARD</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant">TOTAL VOTES</p>
+<p class="font-display-lg text-headline-lg text-on-surface" id="totalVotes">1,284</p>
+</div>
+<div class="h-12 w-[1px] bg-outline-variant/30"></div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant">CLOSING IN</p>
+<p class="font-display-lg text-headline-lg text-on-surface tabular-nums" id="timer">14:52</p>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative z-10 max-w-container-max mx-auto px-xl py-lg h-[calc(100vh-140px)] overflow-hidden">
+<div class="grid grid-cols-12 gap-xl h-full">
+<!-- Leaderboard Chart -->
+<div class="col-span-12 space-y-md flex flex-col justify-center">
+<!-- Top 3 High Contrast Cards -->
+<div class="grid grid-cols-3 gap-lg mb-xl">
+<!-- Rank 2: Silver -->
+<div class="glass-card p-lg rounded-xl border-b-4 border-silver flex flex-col items-center justify-end h-64 relative overflow-hidden group transition-all duration-500 hover:-translate-y-2">
+<div class="absolute top-4 left-4 font-display-lg text-display-lg rank-silver opacity-30 italic">02</div>
+<span class="material-symbols-outlined text-display-lg rank-silver mb-sm">military_tech</span>
+<div class="text-center">
+<h3 class="font-headline-lg text-title-md text-on-surface truncate">Agro-AI Predictor</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">294 VOTES</p>
+</div>
+<div class="w-full h-2 bg-white/5 rounded-full mt-lg overflow-hidden">
+<div class="h-full bg-secondary/60 w-[78%]"></div>
+</div>
+</div>
+<!-- Rank 1: Gold -->
+<div class="glass-card p-lg rounded-xl border-b-4 border-secondary ring-2 ring-secondary/30 flex flex-col items-center justify-end h-80 relative overflow-hidden group transition-all duration-500 hover:-translate-y-2 shadow-[0_0_50px_rgba(245,130,32,0.2)]">
+<div class="absolute top-4 left-4 font-display-lg text-display-lg rank-gold opacity-50 italic">01</div>
+<span class="material-symbols-outlined text-display-lg rank-gold mb-sm scale-125">workspace_premium</span>
+<div class="text-center">
+<h3 class="font-headline-lg text-headline-lg text-secondary">MediScan Portable</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-bold tracking-widest">342 VOTES</p>
+</div>
+<div class="w-full h-3 bg-white/10 rounded-full mt-lg overflow-hidden">
+<div class="h-full shimmer w-[92%]"></div>
+</div>
+</div>
+<!-- Rank 3: Bronze -->
+<div class="glass-card p-lg rounded-xl border-b-4 border-bronze flex flex-col items-center justify-end h-56 relative overflow-hidden group transition-all duration-500 hover:-translate-y-2">
+<div class="absolute top-4 left-4 font-display-lg text-display-lg rank-bronze opacity-30 italic">03</div>
+<span class="material-symbols-outlined text-display-lg rank-bronze mb-sm">emoji_events</span>
+<div class="text-center">
+<h3 class="font-headline-lg text-title-md text-on-surface truncate">Eco-Power Grid</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">251 VOTES</p>
+</div>
+<div class="w-full h-2 bg-white/5 rounded-full mt-lg overflow-hidden">
+<div class="h-full bg-secondary/40 w-[65%]"></div>
+</div>
+</div>
+</div>
+<!-- Remaining Rankings (Horizontal Lanes) -->
+<div class="space-y-sm">
+<!-- Lane 4 -->
+<div class="glass-card px-xl py-base rounded-lg flex items-center gap-lg hover:bg-white/5 transition-colors">
+<span class="font-label-sm text-title-md text-on-surface-variant w-12 shrink-0">#04</span>
+<div class="w-64">
+<h4 class="font-title-md text-body-lg text-on-surface">SecureVote Blockchain</h4>
+</div>
+<div class="flex-grow h-6 bg-white/5 rounded-full overflow-hidden relative">
+<div class="h-full bg-secondary/30 rounded-full transition-all duration-1000 ease-out" style="width: 55%"></div>
+<div class="absolute inset-0 flex items-center px-sm">
+<span class="font-label-sm text-[10px] text-secondary font-bold tracking-tighter opacity-80">STABLE TREND</span>
+</div>
+</div>
+<div class="w-24 text-right">
+<span class="font-title-md text-on-surface">218</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-xs">VOTES</span>
+</div>
+</div>
+<!-- Lane 5 -->
+<div class="glass-card px-xl py-base rounded-lg flex items-center gap-lg hover:bg-white/5 transition-colors">
+<span class="font-label-sm text-title-md text-on-surface-variant w-12 shrink-0">#05</span>
+<div class="w-64">
+<h4 class="font-title-md text-body-lg text-on-surface">WaterFilter Nano</h4>
+</div>
+<div class="flex-grow h-6 bg-white/5 rounded-full overflow-hidden relative">
+<div class="h-full bg-secondary/30 rounded-full transition-all duration-1000 ease-out" style="width: 48%"></div>
+<div class="absolute inset-0 flex items-center px-sm">
+<span class="font-label-sm text-[10px] text-error font-bold tracking-tighter opacity-80 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">trending_down</span> -3 POSITIONS
+                </span>
+</div>
+</div>
+<div class="w-24 text-right">
+<span class="font-title-md text-on-surface">192</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-xs">VOTES</span>
+</div>
+</div>
+<!-- Lane 6 -->
+<div class="glass-card px-xl py-base rounded-lg flex items-center gap-lg hover:bg-white/5 transition-colors border-l-4 border-secondary">
+<span class="font-label-sm text-title-md text-secondary w-12 shrink-0">#06</span>
+<div class="w-64">
+<h4 class="font-title-md text-body-lg text-secondary">Smart Traffic IoT</h4>
+</div>
+<div class="flex-grow h-6 bg-white/5 rounded-full overflow-hidden relative">
+<div class="h-full bg-secondary/50 rounded-full transition-all duration-1000 ease-out" style="width: 42%"></div>
+<div class="absolute inset-0 flex items-center px-sm">
+<span class="font-label-sm text-[10px] text-on-surface font-bold tracking-tighter flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-secondary">trending_up</span> GAINING MOMENTUM
+                </span>
+</div>
+</div>
+<div class="w-24 text-right">
+<span class="font-title-md text-on-surface">177</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-xs">VOTES</span>
+</div>
+</div>
+<!-- Lane 7 -->
+<div class="glass-card px-xl py-base rounded-lg flex items-center gap-lg hover:bg-white/5 transition-colors">
+<span class="font-label-sm text-title-md text-on-surface-variant w-12 shrink-0">#07</span>
+<div class="w-64">
+<h4 class="font-title-md text-body-lg text-on-surface">EduConnect VR</h4>
+</div>
+<div class="flex-grow h-6 bg-white/5 rounded-full overflow-hidden relative">
+<div class="h-full bg-secondary/20 rounded-full transition-all duration-1000 ease-out" style="width: 35%"></div>
+</div>
+<div class="w-24 text-right">
+<span class="font-title-md text-on-surface">154</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-xs">VOTES</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Ticker -->
+<footer class="fixed bottom-0 left-0 w-full bg-secondary text-on-secondary px-xl py-sm flex items-center gap-lg overflow-hidden whitespace-nowrap z-50 shadow-xl">
+<div class="flex items-center gap-xs font-label-sm font-bold tracking-widest shrink-0">
+<span class="material-symbols-outlined">campaign</span>
+      SYSTEM NOTICE:
+    </div>
+<div class="animate-marquee inline-block font-label-sm tracking-wide">
+      VOTING CLOSES IN 14 MINUTES  •  REFRESHING DATA EVERY 30 SECONDS  •  CURRENT TOP PROJECT: MEDISCAN PORTABLE (+4.2% RECENT)  •  PLEASE USE THE OFFICIAL MOBILE APP TO CAST YOUR VOTE  •  ICTU TECH EXPO 2024  •  TRANSPARENCY IN INNOVATION
+    </div>
+</footer>
+<style>
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: inline-block;
+      animation: marquee 30s linear infinite;
+    }
+  </style>
+<script>
+    // Simple micro-interactions for the "live" feel
+    let totalVotes = 1284;
+    let secondsLeft = 14 * 60 + 52;
+
+    const totalVotesEl = document.getElementById('totalVotes');
+    const timerEl = document.getElementById('timer');
+
+    setInterval(() => {
+      // Randomly increment votes to simulate real-time activity
+      if (Math.random() > 0.4) {
+        totalVotes += Math.floor(Math.random() * 3);
+        totalVotesEl.innerText = totalVotes.toLocaleString();
+      }
+
+      // Decrement timer
+      secondsLeft--;
+      if (secondsLeft < 0) secondsLeft = 0;
+      const mins = Math.floor(secondsLeft / 60);
+      const secs = secondsLeft % 60;
+      timerEl.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }, 1000);
+
+    // Subtle parallax mouse effect for the background 
+    document.addEventListener('mousemove', (e) => {
+      const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+      const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+      document.body.style.backgroundPosition = `calc(50% + ${moveX}px) calc(50% + ${moveY}px)`;
+    });
+  </script>
+</body></html>

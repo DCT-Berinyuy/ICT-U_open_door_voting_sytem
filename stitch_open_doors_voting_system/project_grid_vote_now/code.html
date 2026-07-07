@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tech Expo 2024 - Vote for Best Project</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#b1c7f6",
+                    "outline-variant": "#44474e",
+                    "surface-container-lowest": "#0c0f0f",
+                    "error-container": "#93000a",
+                    "secondary-container": "#e1730a",
+                    "surface-container": "#1e2020",
+                    "error": "#ffb4ab",
+                    "inverse-surface": "#e2e2e2",
+                    "on-background": "#e2e2e2",
+                    "primary": "#b5c7ef",
+                    "primary-container": "#0b1f3f",
+                    "background": "#121414",
+                    "on-tertiary": "#183057",
+                    "surface-container-high": "#282a2b",
+                    "secondary-fixed-dim": "#ffb786",
+                    "surface": "#121414",
+                    "on-primary-fixed-variant": "#354769",
+                    "on-secondary-container": "#461f00",
+                    "on-surface-variant": "#c5c6cf",
+                    "on-secondary-fixed": "#311300",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed": "#d7e2ff",
+                    "on-secondary": "#502400",
+                    "surface-variant": "#333535",
+                    "outline": "#8f9099",
+                    "surface-bright": "#37393a",
+                    "tertiary": "#b1c7f6",
+                    "on-tertiary-fixed": "#001a40",
+                    "primary-fixed-dim": "#b5c7ef",
+                    "surface-dim": "#121414",
+                    "surface-container-low": "#1a1c1c",
+                    "tertiary-container": "#031f46",
+                    "surface-container-highest": "#333535",
+                    "surface-tint": "#b5c7ef",
+                    "on-tertiary-container": "#7288b4",
+                    "secondary-fixed": "#ffdcc6",
+                    "on-primary-container": "#7687ad",
+                    "on-secondary-fixed-variant": "#723600",
+                    "on-surface": "#e2e2e2",
+                    "on-primary-fixed": "#061b3b",
+                    "tertiary-fixed": "#d7e2ff",
+                    "inverse-primary": "#4d5e82",
+                    "secondary": "#ffb786",
+                    "on-tertiary-fixed-variant": "#30476f",
+                    "inverse-on-surface": "#2f3131",
+                    "on-primary": "#1e3051",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "64px",
+                    "gutter": "16px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "lg": "40px",
+                    "base": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "title-md": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(22, 46, 85, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .active-glow {
+            box-shadow: 0 4px 20px rgba(245, 130, 32, 0.3);
+        }
+        .shimmer-bg {
+            background: linear-gradient(90deg, rgba(245, 130, 32, 0.1) 25%, rgba(245, 130, 32, 0.3) 50%, rgba(245, 130, 32, 0.1) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-primary-container text-on-surface font-body-md selection:bg-secondary/30 selection:text-secondary antialiased">
+<!-- Top AppBar -->
+<header class="bg-surface dark:bg-surface-container-low border-b border-outline-variant/20 dark:border-outline-variant/30 shadow-sm flex justify-between items-center w-full px-gutter py-base z-50 sticky top-0">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 overflow-hidden flex items-center justify-center">
+<img alt="ICT University Logo" class="h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYKmx4b9ZdvO7P3auaCObvlxcm-k2o0qATnyxuRnHw1k0M7QNHE4Z5D4-oc6jtZc9nzdFdvydcBsvCn5aY9YUiP6MHy66ONq4kAZhn5hlUMjJuWDD5wR-S33aesnTzWTxESdTsMePU99Cb4p3WJ5rpRAiyQotdiiWdHB-oGKrVXk9zYGGPyUck2DIwHekFtGiELXu9bW6RcDOaLAGDpd70DRth3TZ_aLBcVhuTnQlxhoLFK3mJ5iwTuUkjjZyGzryIP8Y"/>
+</div>
+<div class="flex flex-col">
+<h1 class="text-title-md font-headline-lg-mobile text-secondary dark:text-secondary-fixed tracking-tight">Tech Expo 2024</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Vote for the Best Project</p>
+</div>
+</div>
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-variant/10 dark:hover:bg-surface-variant/20 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</header>
+<main class="pb-24">
+<!-- Floating Ambient Background -->
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-secondary/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[120px]"></div>
+</div>
+<!-- Sticky Filters Section -->
+<section class="mt-4 px-gutter space-y-4">
+<div class="flex flex-col gap-4">
+<!-- Categories -->
+<div class="flex items-center gap-2 overflow-x-auto hide-scrollbar py-1">
+<button class="bg-secondary text-on-secondary px-4 py-1.5 rounded-full whitespace-nowrap text-label-sm font-label-sm shadow-[0_4px_12px_rgba(245,130,32,0.3)]">All Projects</button>
+<button class="bg-surface-variant/40 text-on-surface-variant px-4 py-1.5 rounded-full whitespace-nowrap text-label-sm font-label-sm border border-white/5 hover:bg-surface-variant/60 transition-colors">AI</button>
+<button class="bg-surface-variant/40 text-on-surface-variant px-4 py-1.5 rounded-full whitespace-nowrap text-label-sm font-label-sm border border-white/5 hover:bg-surface-variant/60 transition-colors">Cybersecurity</button>
+<button class="bg-surface-variant/40 text-on-surface-variant px-4 py-1.5 rounded-full whitespace-nowrap text-label-sm font-label-sm border border-white/5 hover:bg-surface-variant/60 transition-colors">Networking</button>
+<button class="bg-surface-variant/40 text-on-surface-variant px-4 py-1.5 rounded-full whitespace-nowrap text-label-sm font-label-sm border border-white/5 hover:bg-surface-variant/60 transition-colors">IoT</button>
+<button class="bg-surface-variant/40 text-on-surface-variant px-4 py-1.5 rounded-full whitespace-nowrap text-label-sm font-label-sm border border-white/5 hover:bg-surface-variant/60 transition-colors">Software Engineering</button>
+</div>
+<!-- Hall Locations -->
+<div class="flex items-center gap-2 overflow-x-auto hide-scrollbar py-1">
+<div class="flex items-center gap-2 px-2 py-1 bg-surface-container-high/50 rounded-lg border border-white/10 shrink-0">
+<span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'opsz' 18;">location_on</span>
+<span class="text-label-sm font-label-sm text-on-surface whitespace-nowrap">George Mbarika Hall</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-high/30 rounded-lg border border-white/5 shrink-0 opacity-70">
+<span class="text-label-sm font-label-sm text-on-surface whitespace-nowrap">Chumbow Hall</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-high/30 rounded-lg border border-white/5 shrink-0 opacity-70">
+<span class="text-label-sm font-label-sm text-on-surface whitespace-nowrap">Eric Mbarika Hall</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-high/30 rounded-lg border border-white/5 shrink-0 opacity-70">
+<span class="text-label-sm font-label-sm text-on-surface whitespace-nowrap">Courtyard</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Grid -->
+<section class="px-gutter mt-6 grid grid-cols-1 gap-6">
+<!-- Project Card 1 (Active/Selected State Example) -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-4 border-2 border-secondary active-glow transition-all active:scale-[0.98]">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-headline-lg-mobile shadow-lg">
+                        14
+                    </div>
+<div class="flex flex-col items-end gap-2">
+<span class="bg-secondary-container/20 text-secondary px-3 py-1 rounded-full text-label-sm font-label-sm border border-secondary/20">AI</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-label-sm font-label-sm">Chumbow Hall</span>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-title-md font-title-md text-on-surface mb-1">DeepScan Medical Diagnosis</h2>
+<p class="text-body-md text-on-surface-variant leading-relaxed line-clamp-2">An advanced neural network system for early detection of pulmonary diseases through mobile radiology imaging.</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-white/5">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-primary-container bg-surface-variant flex items-center justify-center text-[10px] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up professional headshot of a young African engineering student wearing glasses and a focused expression, in a modern university setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOh8O5NcA4uAWR96Il9J4fzzCUdBi6_fmSWAemUzWmWoXy8mtSU0SeZpu87_PVqBzO1Lq8qdiAkZqWdOoXbJOf_HOJpT1S4AG8Sp4hjyiXcyCAx59HWm35R2W_tXyvxlYrQWSNVwEP64H2oLhC82FKCQdoWY8-Z9KxgTENvJK13yrJlXIT4T55U7NLXBcPZ2V7Zic8SIZHhEthQ7QJrtFoRpzjF7Zts12jeaqbSGUerKpyecrNTIhezg"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-primary-container bg-surface-variant flex items-center justify-center text-[10px] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a smiling female computer science student with braided hair, wearing a white ICT University polo shirt, tech-inspired lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTxKobiiaK9bWlFRVO2CNfR5AsdI-Rrvf_aTZAH7zweHB6y9rqGATTh6KUbQpzqrzv_YuTRo2MRTPc_EmijSPNu09xDdsKRvS_P5klQgxm6EufXNTeFnvbUJ2Ga71ywWBwyGQz2UutZ06cHlEZAK3rcDj8b9Z6ANAAf2Ug0RK0F4Oe4oB1NX-T6HoN-d2_pREPA1dag9cLTLD80M8QU_fxI4XowG8TpdUXUEA6aQ9_1jhFY6_3WNpqew"/>
+</div>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-headline-lg-mobile text-[14px] uppercase tracking-wider flex items-center gap-2">
+<span>Voted</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-4 border border-white/10 transition-all hover:bg-surface-variant/20">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-headline-lg-mobile border border-white/10">
+                        08
+                    </div>
+<div class="flex flex-col items-end gap-2">
+<span class="bg-tertiary-container/30 text-tertiary px-3 py-1 rounded-full text-label-sm font-label-sm border border-tertiary/20">IoT</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-label-sm font-label-sm">George Mbarika Hall</span>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-title-md font-title-md text-on-surface mb-1">Smart Agri-Node Network</h2>
+<p class="text-body-md text-on-surface-variant leading-relaxed line-clamp-2">Mesh-networking sensor arrays for automated irrigation and soil nutrient monitoring in semi-arid regions.</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-white/5">
+<span class="text-label-sm font-label-sm text-secondary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                        Live Demo
+                    </span>
+<button class="bg-white/5 hover:bg-white/10 text-on-surface border border-white/10 px-6 py-2 rounded-lg font-headline-lg-mobile text-[14px] uppercase tracking-wider">
+                        Vote
+                    </button>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-4 border border-white/10 transition-all hover:bg-surface-variant/20">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-headline-lg-mobile border border-white/10">
+                        22
+                    </div>
+<div class="flex flex-col items-end gap-2">
+<span class="bg-error-container/20 text-error px-3 py-1 rounded-full text-label-sm font-label-sm border border-error/20">Cybersec</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-label-sm font-label-sm">Courtyard</span>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-title-md font-title-md text-on-surface mb-1">Cryptic Ledger Vault</h2>
+<p class="text-body-md text-on-surface-variant leading-relaxed line-clamp-2">Hardware-accelerated encryption gateway for securing legacy banking infrastructure against quantum threats.</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-white/5">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Team: Alpha Forge</span>
+<button class="bg-white/5 hover:bg-white/10 text-on-surface border border-white/10 px-6 py-2 rounded-lg font-headline-lg-mobile text-[14px] uppercase tracking-wider">
+                        Vote
+                    </button>
+</div>
+</div>
+<!-- Project Card 4 -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-4 border border-white/10 transition-all hover:bg-surface-variant/20">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-headline-lg-mobile border border-white/10">
+                        05
+                    </div>
+<div class="flex flex-col items-end gap-2">
+<span class="bg-secondary-container/10 text-secondary-fixed-dim px-3 py-1 rounded-full text-label-sm font-label-sm border border-secondary/10">Energy</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-label-sm font-label-sm">Eric Mbarika Hall</span>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-title-md font-title-md text-on-surface mb-1">Solar-Kinetic Hybrid Grid</h2>
+<p class="text-body-md text-on-surface-variant leading-relaxed line-clamp-2">Decentralized power distribution system that combines photovoltaic harvesting with kinetic flooring energy.</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-white/5">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Status: Final Review</span>
+<button class="bg-white/5 hover:bg-white/10 text-on-surface border border-white/10 px-6 py-2 rounded-lg font-headline-lg-mobile text-[14px] uppercase tracking-wider">
+                        Vote
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container dark:bg-surface-container-lowest border-t border-white/5 shadow-[0_-4px_20px_rgba(0,0,0,0.4)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed shadow-[0_4px_20px_rgba(225,115,10,0.3)] bg-secondary-container/10 rounded-xl px-2 py-1 scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="grid_view" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="text-label-sm font-label-sm">Projects</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="text-label-sm font-label-sm">Leaderboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span class="text-label-sm font-label-sm">Registration</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+<span class="text-label-sm font-label-sm">Info</span>
+</button>
+</nav>
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.style.opacity = '0.8';
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    btn.style.opacity = '1';
+                    btn.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+
+        // Sticky filter scroll shadow logic (optional visual polish)
+        const filterContainers = document.querySelectorAll('.overflow-x-auto');
+        filterContainers.forEach(container => {
+            container.addEventListener('scroll', () => {
+                // Potential logic to add/remove fade masks based on scroll position
+            });
+        });
+    </script>
+</body></html>

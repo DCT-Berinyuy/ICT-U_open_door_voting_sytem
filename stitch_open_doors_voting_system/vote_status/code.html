@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tech Expo 2024 - Voting Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#b1c7f6",
+                    "outline-variant": "#44474e",
+                    "surface-container-lowest": "#0c0f0f",
+                    "error-container": "#93000a",
+                    "secondary-container": "#e1730a",
+                    "surface-container": "#1e2020",
+                    "error": "#ffb4ab",
+                    "inverse-surface": "#e2e2e2",
+                    "on-background": "#e2e2e2",
+                    "primary": "#b5c7ef",
+                    "primary-container": "#0b1f3f",
+                    "background": "#121414",
+                    "on-tertiary": "#183057",
+                    "surface-container-high": "#282a2b",
+                    "secondary-fixed-dim": "#ffb786",
+                    "surface": "#121414",
+                    "on-primary-fixed-variant": "#354769",
+                    "on-secondary-container": "#461f00",
+                    "on-surface-variant": "#c5c6cf",
+                    "on-secondary-fixed": "#311300",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed": "#d7e2ff",
+                    "on-secondary": "#502400",
+                    "surface-variant": "#333535",
+                    "outline": "#8f9099",
+                    "surface-bright": "#37393a",
+                    "tertiary": "#b1c7f6",
+                    "on-tertiary-fixed": "#001a40",
+                    "primary-fixed-dim": "#b5c7ef",
+                    "surface-dim": "#121414",
+                    "surface-container-low": "#1a1c1c",
+                    "tertiary-container": "#031f46",
+                    "surface-container-highest": "#333535",
+                    "surface-tint": "#b5c7ef",
+                    "on-tertiary-container": "#7288b4",
+                    "secondary-fixed": "#ffdcc6",
+                    "on-primary-container": "#7687ad",
+                    "on-secondary-fixed-variant": "#723600",
+                    "on-surface": "#e2e2e2",
+                    "on-primary-fixed": "#061b3b",
+                    "tertiary-fixed": "#d7e2ff",
+                    "inverse-primary": "#4d5e82",
+                    "secondary": "#ffb786",
+                    "on-tertiary-fixed-variant": "#30476f",
+                    "inverse-on-surface": "#2f3131",
+                    "on-primary": "#1e3051",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "64px",
+                    "gutter": "16px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "lg": "40px",
+                    "base": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "title-md": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0b1f3f;
+            background-image: radial-gradient(circle at center, #162e55 0%, #0b1f3f 100%);
+            min-height: 100vh;
+            color: #e2e2e2;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(22, 46, 85, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .primary-glow {
+            box-shadow: 0 4px 20px rgba(245, 130, 32, 0.3);
+        }
+
+        .status-pulse {
+            animation: pulse-orange 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-orange {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .perspective-container {
+            perspective: 1000px;
+        }
+
+        .rotate-entrance {
+            animation: rotateIn 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        @keyframes rotateIn {
+            from { opacity: 0; transform: rotateY(-10deg) translateZ(-50px); }
+            to { opacity: 1; transform: rotateY(0) translateZ(0); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-container-low text-primary dark:text-primary-fixed border-b border-outline-variant/20 dark:border-outline-variant/30 shadow-sm flex justify-between items-center w-full px-gutter py-base z-50 sticky top-0">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-title-md font-headline-lg-mobile text-secondary dark:text-secondary-fixed">shield</span>
+<h1 class="text-title-md font-title-md-mobile dark:text-on-surface">Tech Expo 2024</h1>
+</div>
+<div class="flex items-center gap-base">
+<button class="material-symbols-outlined p-2 hover:bg-surface-variant/10 dark:hover:bg-surface-variant/20 transition-colors rounded-full">account_circle</button>
+</div>
+</header>
+<main class="flex flex-col items-center justify-center min-h-[calc(100vh-140px)] px-md py-lg gap-xl">
+<div class="w-full max-w-md perspective-container flex flex-col gap-lg">
+<!-- SUCCESS STATE CARD -->
+<div class="glass-card rounded-xl p-md flex flex-col items-center text-center rotate-entrance border-l-4 border-l-secondary" id="success-state">
+<div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mb-md float-animation">
+<span class="material-symbols-outlined text-[48px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center gap-xs mb-sm">
+<div class="w-2 h-2 rounded-full bg-secondary status-pulse"></div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Confirmation</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-base">Your vote is in!</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg leading-relaxed">
+                    Thanks for supporting <span class="text-secondary font-bold">Smart Agriculture IoT System</span>. Your contribution helps us recognize the most innovative tech at ICTU.
+                </p>
+<button class="w-full py-4 bg-secondary text-on-secondary font-headline-lg-mobile uppercase tracking-wider rounded-lg primary-glow active:scale-95 transition-all hover:brightness-110">
+                    View Live Leaderboard
+                </button>
+</div>
+<!-- ALREADY VOTED STATE CARD -->
+<div class="glass-card rounded-xl p-md flex flex-col items-center text-center rotate-entrance opacity-80 border-l-4 border-l-outline" id="already-voted-state">
+<div class="w-20 h-20 bg-surface-variant/30 rounded-full flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-[48px] text-outline">history</span>
+</div>
+<div class="flex items-center gap-xs mb-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Entry Recorded</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-base">Already Voted</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg leading-relaxed">
+                    You already voted for <span class="text-primary-fixed-dim font-bold">Smart Agriculture IoT System</span>. Thanks for participating! Duplicate votes are not permitted.
+                </p>
+<button class="w-full py-4 bg-secondary text-on-secondary font-headline-lg-mobile uppercase tracking-wider rounded-lg primary-glow active:scale-95 transition-all hover:brightness-110">
+                    View Live Leaderboard
+                </button>
+</div>
+</div>
+<!-- Decorative University Watermark -->
+<div class="opacity-10 fixed bottom-24 -right-12 pointer-events-none">
+<span class="material-symbols-outlined text-[240px]">shield</span>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Shell Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container dark:bg-surface-container-lowest rounded-t-xl shadow-[0_-4px_20px_rgba(0,0,0,0.4)] border-t border-white/5 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-label-sm font-label-sm mt-1">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="text-label-sm font-label-sm mt-1">Leaderboard</span>
+</a>
+<div class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed shadow-[0_4px_20px_rgba(225,115,10,0.3)] bg-secondary-container/10 rounded-xl px-2 py-1 scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person_add</span>
+<span class="text-label-sm font-label-sm mt-1">Registration</span>
+</div>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant/70 hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">info</span>
+<span class="text-label-sm font-label-sm mt-1">Info</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for the buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                console.log('Navigating to leaderboard...');
+                // In a real app, this would trigger navigation
+            });
+        });
+        
+        // Add staggered entrance for the states
+        window.addEventListener('DOMContentLoaded', () => {
+            const success = document.getElementById('success-state');
+            const already = document.getElementById('already-voted-state');
+            
+            success.style.animationDelay = '0.1s';
+            already.style.animationDelay = '0.3s';
+        });
+    </script>
+</body></html>
