@@ -65,7 +65,7 @@
   </div>
 
   <!-- Sticky Filters Section -->
-  <section class="mt-4 px-gutter space-y-4">
+  <section class="mt-4 px-4 md:px-8 space-y-4">
     <div class="flex flex-col gap-3">
       <!-- Categories -->
       <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar py-1">
@@ -100,16 +100,16 @@
   </section>
 
   <!-- Project Grid -->
-  <section class="px-gutter mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <section class="px-4 md:px-8 mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {#each filteredProjects as project (project.id)}
       <div class="glass-card rounded-xl p-4 flex flex-col justify-between gap-4 border border-white/10 transition-all hover:bg-surface-variant/20">
         <div>
           <div class="flex justify-between items-start mb-3">
-            <div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-headline-lg-mobile border border-white/10 font-bold">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center text-sm md:text-lg border border-white/10 font-bold">
               {formatNum(project.number)}
             </div>
             <div class="flex flex-col items-end gap-1.5">
-              <span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm {getCategoryColor(project.category)}">
+              <span class="px-2 py-0.5 rounded-full text-[10px] md:text-xs font-bold {getCategoryColor(project.category)}">
                 {project.category}
               </span>
               <div class="flex items-center gap-1 text-on-surface-variant">
@@ -119,9 +119,9 @@
             </div>
           </div>
           <div>
-            <h2 class="text-title-md font-title-md text-on-surface mb-2 font-bold leading-tight">{project.title}</h2>
+            <h2 class="text-[15px] md:text-[18px] text-on-surface mb-2 font-bold leading-tight font-headline-lg-mobile">{project.title}</h2>
             {#if project.presenters}
-              <p class="text-body-md text-on-surface-variant/80 text-[14px] leading-relaxed">
+              <p class="text-body-md text-on-surface-variant/80 text-[13px] md:text-[14px] leading-relaxed">
                 <span class="font-semibold text-secondary">Presenters:</span> {project.presenters}
               </p>
             {/if}

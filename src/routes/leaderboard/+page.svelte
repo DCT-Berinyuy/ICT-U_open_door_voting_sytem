@@ -203,22 +203,27 @@
       <!-- Remaining Rankings (Horizontal Lanes) -->
       <div class="space-y-3 pb-16">
         {#each results.slice(3) as project, i}
-          <div class="glass-card px-6 py-3 rounded-lg flex items-center gap-6 hover:bg-white/5 transition-colors">
-            <span class="font-label-sm text-title-md text-on-surface-variant w-12 shrink-0 font-bold">#{formatNum(i + 4)}</span>
-            <div class="w-64 shrink-0">
-              <h4 class="font-title-md text-[16px] text-on-surface truncate font-semibold">{project.title}</h4>
+          <div class="glass-card px-4 md:px-6 py-2.5 rounded-lg flex items-center gap-4 md:gap-6 hover:bg-white/5 transition-colors">
+            <span class="font-label-sm text-[13px] md:text-[15px] text-on-surface-variant w-10 shrink-0 font-bold">#{formatNum(i + 4)}</span>
+            <div class="w-40 sm:w-56 md:w-64 shrink-0">
+              <h4 class="text-[13px] md:text-[15px] text-on-surface truncate font-semibold font-headline-lg-mobile">{project.title}</h4>
             </div>
-            <div class="flex-grow h-6 bg-white/5 rounded-full overflow-hidden relative">
+            <div class="flex-grow h-5 bg-white/5 rounded-full overflow-hidden relative hidden sm:block">
               <div class="h-full bg-secondary/30 rounded-full transition-all duration-500 ease-out" style="width: {getPercentage(project.vote_count)}%"></div>
               <div class="absolute inset-0 flex items-center px-3">
-                <span class="font-label-sm text-[10px] text-secondary font-bold tracking-tighter opacity-80 uppercase">
+                <span class="font-label-sm text-[9px] text-secondary font-bold tracking-tighter opacity-80 uppercase">
                   {project.category} / {project.hall}
                 </span>
               </div>
             </div>
-            <div class="w-24 text-right shrink-0">
-              <span class="font-title-md text-on-surface font-bold">{project.vote_count}</span>
-              <span class="font-label-sm text-[10px] text-on-surface-variant ml-1">VOTES</span>
+            <div class="flex-grow text-left sm:hidden">
+              <span class="text-[9px] bg-secondary-container/10 border border-secondary/20 px-2 py-0.5 rounded text-secondary font-bold font-label-sm uppercase">
+                {project.category}
+              </span>
+            </div>
+            <div class="w-20 md:w-24 text-right shrink-0">
+              <span class="text-[14px] md:text-[16px] text-on-surface font-bold font-headline-lg-mobile">{project.vote_count}</span>
+              <span class="font-label-sm text-[9px] text-on-surface-variant ml-0.5">VOTES</span>
             </div>
           </div>
         {/each}
