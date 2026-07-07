@@ -1,7 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
   import './layout.css';
-  import favicon from '$lib/assets/favicon.svg';
 
   let { children } = $props();
 
@@ -18,7 +17,7 @@
 </script>
 
 <svelte:head>
-  <link rel="icon" href={favicon} />
+  <link rel="icon" type="image/jpeg" href="/favicon.jpeg" />
 </svelte:head>
 
 {#if showHeader}
