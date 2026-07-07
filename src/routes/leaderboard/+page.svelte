@@ -143,7 +143,7 @@
         
         <!-- Rank 2: Silver (Rendered left) -->
         {#if results.length > 1}
-          <div class="glass-card p-6 rounded-xl border-b-4 border-silver flex flex-col items-center justify-end h-80 md:h-[350px] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2">
+          <div class="glass-card p-6 rounded-xl border-b-4 border-silver flex flex-col items-center justify-center h-80 md:h-[350px] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2">
             <div class="absolute top-4 left-4 font-display-lg text-[48px] rank-silver opacity-30 italic font-black">02</div>
             <span class="material-symbols-outlined text-[48px] rank-silver mb-3">military_tech</span>
             <div class="text-center w-full">
@@ -162,7 +162,7 @@
 
         <!-- Rank 1: Gold (Rendered center and taller) -->
         {#if results.length > 0}
-          <div class="glass-card p-6 rounded-xl border-b-4 border-secondary ring-2 ring-secondary/30 flex flex-col items-center justify-end h-[380px] md:h-[430px] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2 shadow-[0_0_50px_rgba(245,130,32,0.25)]">
+          <div class="glass-card p-6 rounded-xl border-b-4 border-secondary ring-2 ring-secondary/30 flex flex-col items-center justify-center h-[380px] md:h-[430px] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2 shadow-[0_0_50px_rgba(245,130,32,0.25)]">
             <div class="absolute top-4 left-4 font-display-lg text-[56px] rank-gold opacity-50 italic font-black">01</div>
             <span class="material-symbols-outlined text-[56px] rank-gold mb-3 scale-125">workspace_premium</span>
             <div class="text-center w-full">
@@ -181,7 +181,7 @@
 
         <!-- Rank 3: Bronze (Rendered right) -->
         {#if results.length > 2}
-          <div class="glass-card p-6 rounded-xl border-b-4 border-bronze flex flex-col items-center justify-end h-72 md:h-[310px] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2">
+          <div class="glass-card p-6 rounded-xl border-b-4 border-bronze flex flex-col items-center justify-center h-72 md:h-[310px] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2">
             <div class="absolute top-4 left-4 font-display-lg text-[40px] rank-bronze opacity-30 italic font-black">03</div>
             <span class="material-symbols-outlined text-[40px] rank-bronze mb-3">emoji_events</span>
             <div class="text-center w-full">
